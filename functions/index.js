@@ -25,11 +25,7 @@ exports.filter = functions.https.onRequest((request, response) => {
     }
 
     let fileContent;
-    try {
-        fileContent = fs.readFileSync(path.resolve('public') + '/' + fileName + '.html');
-    } catch (err) {
-        throw err;
-    }
+    fileContent = fs.readFileSync(path.resolve('public') + '/' + fileName + '.html');
     const html = fileContent.toString();
 
     response.status(statusCode).send(html);
